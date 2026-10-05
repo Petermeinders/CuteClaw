@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+<title>CuteClaw</title>
+<meta name="description" content="A cute claw machine for little ones. Move the crane, drop the claw, win a cuddly plushie!" />
+<meta name="theme-color" content="#ff8fab" />
+<link rel="manifest" href="manifest.json" />
+<link rel="icon" href="assets/icons/favicon.ico" />
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="CuteClaw" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bubbles" aria-hidden="true">
+    <span class="bubble b1"></span>
+    <span class="bubble b2"></span>
+    <span class="bubble b3"></span>
+    <span class="bubble b4"></span>
+    <span class="bubble b5"></span>
+  </div>
+
+  <header class="hud" id="hud">
+    <div class="hud-block">
+      <span class="hud-label">Prizes</span>
+      <span id="scoreEl" class="hud-value"><span class="star">★</span> <span id="scoreNum">0</span></span>
+    </div>
+    <div class="hud-block center">
+      <span class="brand">CuteClaw</span>
+    </div>
+    <div class="hud-block right">
+      <button id="soundBtn" class="icon-btn" type="button" aria-label="Toggle sound" aria-pressed="true">
+        <span id="soundIcon">🔊</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="stage" id="stage">
+    <canvas id="game" width="360" height="640" aria-label="CuteClaw play area"></canvas>
+
+    <div id="overlay" class="overlay" aria-hidden="true">
+      <div class="panel">
+        <h1 class="title" id="endTitle">CuteClaw</h1>
+        <p class="tagline" id="taglineEl">Grab all the cuddly plushies!</p>
+        <button id="playBtn" class="play-btn" type="button">PLAY</button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="controls" id="controls" aria-label="Touch controls">
+    <div class="joy-wrap">
+      <div class="joy" id="joy" role="slider" aria-label="Move the crane left and right" aria-valuemin="-100" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+        <div class="joy-track" aria-hidden="true"></div>
+        <div class="joy-knob" id="joyKnob" aria-hidden="true"></div>
+      </div>
+      <span class="hint">slide to move the crane</span>
+    </div>
+
+    <button id="dropBtn" class="drop-btn" type="button" aria-label="Drop the claw">
+      <svg class="drop-claw" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+        <path d="M24 6v6" stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none" />
+        <path d="M16 14h16v5H16z" fill="currentColor" />
+        <path d="M15 20c0 8 3 13 9 13s9-5 9-13" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" />
+        <path d="M15 22l-4 6M33 22l4 6" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" />
+      </svg>
+      <span class="drop-label">DROP!</span>
+    </button>
+  </footer>
+
+  <script src="game.js"></script>
+</body>
+</html>
